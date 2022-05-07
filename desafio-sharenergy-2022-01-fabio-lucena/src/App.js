@@ -1,6 +1,21 @@
 import Button from '@mui/material/Button'
 import { ThemeProvider, createTheme } from '@mui/material'
-import Home from './Home/Home';
+import { createGlobalStyle } from 'styled-components';
+import Home from './Pages/Home/Home';
+import Router from './Routes/Router';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+ 
+`;
 
 const theme = createTheme({
   palette: {
@@ -12,17 +27,20 @@ const theme = createTheme({
 
 function App() {
 
-  
+
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <Button variant="contained"> botao </Button>
-        
-        
 
-      </div>
-    </ThemeProvider>
+
+    <div className="App">
+      <GlobalStyle />
+
+      <ThemeProvider theme={theme}>
+        <Router/>
+      </ThemeProvider>
+
+    </div>
+
   );
 }
 
