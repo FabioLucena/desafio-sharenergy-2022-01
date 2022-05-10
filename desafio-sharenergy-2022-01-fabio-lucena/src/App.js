@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material'
 import { createGlobalStyle } from 'styled-components';
 import Home from './Pages/Home/Home';
 import Router from './Routes/Router';
+import GlobalState from './Components/Global/GlobalState';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,14 +15,16 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
- 
+
 `;
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#800080',
+      main: '#3f51b5',
+      
     },
+   
   },
 });
 
@@ -36,7 +39,9 @@ function App() {
       <GlobalStyle />
 
       <ThemeProvider theme={theme}>
-        <Router/>
+        <GlobalState>
+          <Router />
+        </GlobalState>
       </ThemeProvider>
 
     </div>

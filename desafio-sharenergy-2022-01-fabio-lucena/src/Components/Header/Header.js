@@ -72,7 +72,7 @@ export default function Header() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+           NEWS
           </Typography>
           <Search>
             <SearchIconWrapper>
