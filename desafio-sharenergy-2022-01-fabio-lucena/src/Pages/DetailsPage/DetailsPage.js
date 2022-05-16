@@ -49,16 +49,29 @@ function DetailsPage() {
 
     }
 
+    const ptTime = (time) =>{
+        let date = time
+        let dateTime = new Date(date)
+        let options = {
+            year: 'numeric', month: 'numeric', day: 'numeric'
+        }
+
+        let result = dateTime.toLocaleString('pt', options)
+
+        return result
+
+    }
+
     return (
 
         <Container>
             <Header cont={0} />
             <NewsContainer>
-                <Card sx={{ maxWidth: 1045, maxHeight: 845 }} >
+                <Card sx={{ maxWidth: 1045, maxHeight: 2045 }} >
                     <CardActionArea >
                         <CardMedia
                             component="img"
-                            masHeight="540"
+                            maxHeight={50}
                             image={!!detail.imageUrl ? detail.imageUrl : "carregando"}
                             alt="News Image"
                         />
@@ -73,7 +86,7 @@ function DetailsPage() {
                                 <NewsP>Font: {detail.newsSite}</NewsP>
                             </Typography>
                             <Typography variant="h7">
-                                Published: {detail.updatedAt}
+                                Published: {ptTime(detail.publishedAt)}
                             </Typography>
                             <Typography variant="h7" component="div">
                                 <a href={detail.url}>Link</a>

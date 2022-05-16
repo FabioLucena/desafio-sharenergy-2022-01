@@ -13,6 +13,18 @@ import { useRequest } from "../CustomHooks/UseRequest";
 export default function ActionAreaCard(props) {
   const navigate = useNavigate()
 
+  const ptTime = (time) =>{
+    let date = time
+    let dateTime = new Date(date)
+    let options = {
+        year: 'numeric', month: 'numeric', day: 'numeric'
+    }
+
+    let result = dateTime.toLocaleString('pt', options)
+
+    return result
+
+}
 
   return (
     <Card sx={{ maxWidth: 345, backgroundColor: '#3f51b5' }} onClick={() => GoToDetailsPage(navigate, props.id)}>
@@ -28,7 +40,7 @@ export default function ActionAreaCard(props) {
             {props.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {props.publishedAt}
+            {ptTime(props.publishedAt)}
           </Typography>
         </CardContent>
       </CardActionArea>
