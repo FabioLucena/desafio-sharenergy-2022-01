@@ -29,6 +29,7 @@ export default function Header(props) {
 
   const aux = () =>{
     setters.setData4(0)
+    setters.setDateLimits(false)
     GoToHomePage(navigate)
   }
 

@@ -22,3 +22,10 @@ export const NewsContainer = styled.div`
 export const NewsP = styled.p`
     padding-top: 30px;
 `
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 15vw;
+    justify-content: space-between;
+`
