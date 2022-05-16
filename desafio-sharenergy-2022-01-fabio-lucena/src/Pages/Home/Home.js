@@ -2,16 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container, ContainerCards } from "./Styled";
 import Header from "../../Components/Header/Header";
 import GlobalStateContext from "../../Components/Global/GlobalStateContext";
-import Card from "../../Components/Card/Card";
 import ActionAreaCard from "../../Components/Card/Card";
 import BasicSelect from "../../Components/Select/BasicSelect";
 import PaginationOutlined from "../../Components/Pagination/PaginationOutlined";
 import { Box, Button } from "@mui/material";
-import useForm from "../../Components/CustomHooks/UseForm";
 
 export default function Home() {
     const { states, setters, requests } = useContext(GlobalStateContext);
-    // const { form, changeValues, clear } = useForm({ date1: "", date2: "" })
     const [values, setValues] = useState({
         date: "",
         date2: ""

@@ -19,15 +19,15 @@ export default function Header(props) {
 
   const navigate = useNavigate()
 
-  const sendForm = (event) =>{
+  const sendForm = (event) => {
     event.preventDefault();
     setters.setPostUrl2(form.search)
     setters.setData4(1)
     clear()
-    
+
   }
 
-  const aux = () =>{
+  const aux = () => {
     setters.setData4(0)
     setters.setDateLimits(false)
     GoToHomePage(navigate)
@@ -50,28 +50,28 @@ export default function Header(props) {
             variant="h6"
             noWrap
             component="div"
-            onClick={()=>aux()}
+            onClick={() => aux()}
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', cursor: "pointer" } }}
           >
             NEWS
           </Typography>
-          <Search >
-          <form onSubmit={sendForm}>  
-          <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              type={"text"}
-              name={"search"}
-              value={form.search}
-              onChange={handleInputChange}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-            <Button variant="text" type={"submit"} >Send</Button>
+          <Search sx={{ maxWidth: 400 }}>
+            <form onSubmit={sendForm}>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                type={"text"}
+                name={"search"}
+                value={form.search}
+                onChange={handleInputChange}
+                inputProps={{ 'aria-label': 'search' }}
+              />
+              <Button variant="text" type={"submit"} >Send</Button>
             </form>
           </Search>
-          
+
         </Toolbar>
       </AppBar>
     </Box>

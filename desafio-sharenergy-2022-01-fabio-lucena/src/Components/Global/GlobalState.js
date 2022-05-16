@@ -17,24 +17,22 @@ export default function GlobalState(props) {
     const getData = () => {
 
         axios
-            .get(`${url}${data4 === 0? `?_limit=${data2}&_start=${(data2*(data3-1)) < 0? 0 : (data2*(data3-1))}${dateLimits === false? "" : "&publishedAt_lt="+maxDate+"&publishedAt_gt="+minDate}` : `?title_contains=${postUrl2}` } `)
-            .then((response)=>{
+            .get(`${url}${data4 === 0 ? `?_limit=${data2}&_start=${(data2 * (data3 - 1)) < 0 ? 0 : (data2 * (data3 - 1))}${dateLimits === false ? "" : "&publishedAt_lt=" + maxDate + "&publishedAt_gt=" + minDate}` : `?title_contains=${postUrl2}`} `)
+            .then((response) => {
                 setData(response.data)
                 setLimit(response.data[0].id)
-                console.log("ultimo id", response.data[0].id)
             })
             .catch((error) => {
                 console.log(error);
-                console.log(`${url}${data4 === 0? `?_limit=${data2}&_start=${(data2*(data3-1)) < 0? 0 : (data2*(data3-1))}${dateLimits === false? "" : "publishedAt_lt="+maxDate+"&publishedAt_gt="+minDate}` : `?title_contains=${postUrl2}` } `)
             });
 
 
-            
+
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         requests.getData()
-    }, [data2, data3, postUrl2, data4, dateLimits]) 
+    }, [data2, data3, postUrl2, data4, dateLimits])
 
 
     const states = { data, data2, data3, data4, limit, postUrl2, dateLimits, minDate, maxDate }
@@ -42,7 +40,7 @@ export default function GlobalState(props) {
     const requests = { getData }
 
     return (
-        <GlobalStateContext.Provider value={{states, setters, requests}}>
+        <GlobalStateContext.Provider value={{ states, setters, requests }}>
             {props.children}
         </GlobalStateContext.Provider>
     )
