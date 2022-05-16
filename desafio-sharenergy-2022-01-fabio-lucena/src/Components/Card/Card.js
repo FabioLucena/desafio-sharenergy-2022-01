@@ -5,11 +5,17 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { GoToDetailsPage } from "../../Routes/RouteFunctions";
+import { useNavigate, useParams } from "react-router-dom";
+import { useRequest } from "../CustomHooks/UseRequest";
 
 
 export default function ActionAreaCard(props) {
+    const navigate = useNavigate()
+    
+
     return (
-      <Card sx={{ maxWidth: 345, backgroundColor: '#3f51b5' }}>
+      <Card sx={{ maxWidth: 345, backgroundColor: '#3f51b5' }} onClick={()=>GoToDetailsPage(navigate, props.id)}>
         <CardActionArea >
           <CardMedia
             component="img"

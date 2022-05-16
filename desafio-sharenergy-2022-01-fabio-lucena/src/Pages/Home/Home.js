@@ -4,6 +4,8 @@ import Header from "../../Components/Header/Header";
 import GlobalStateContext from "../../Components/Global/GlobalStateContext";
 import Card from "../../Components/Card/Card";
 import ActionAreaCard from "../../Components/Card/Card";
+import BasicSelect from "../../Components/Select/BasicSelect";
+import PaginationOutlined from "../../Components/Pagination/PaginationOutlined";
 
 export default function Home() {
     const { states, setters, requests } = useContext(GlobalStateContext);
@@ -26,11 +28,14 @@ export default function Home() {
     })
     return (
         <Container>
-            <Header />
+            <Header
+                cont={1}
+            />
+            <BasicSelect/>
             <ContainerCards>
-                
                 {getNews}
             </ContainerCards>
+            <PaginationOutlined/>
         </Container>
     )
 }
